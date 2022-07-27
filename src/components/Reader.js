@@ -5,6 +5,8 @@ import {
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
 
+import colors from "../themes/colors";
+
 const COMIC_EX = {
   title: "Comic tile here!",
   pageNumber: 123,
@@ -23,7 +25,7 @@ export default function Reader({ comic = "My comic here!" }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#2C2C2C",
+    backgroundColor: colors.white,
     // alignItems: "center",
     // justifyContent: "center",
   },
