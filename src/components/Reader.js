@@ -1,18 +1,5 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  Dimensions,
-  ImageBackground,
-} from "react-native";
+import { View, StyleSheet, Image, Dimensions } from "react-native";
 import React from "react";
-import {
-  SafeAreaView,
-  useSafeAreaInsets,
-} from "react-native-safe-area-context";
-
-import { fetchImage } from "../hooks/useRequest";
 import colors from "../themes/colors";
 import { width } from "../themes/metrics";
 
@@ -25,15 +12,12 @@ const COMIC_EX = {
 };
 
 export default function Reader({ comic = "My comic here!" }) {
-  const insets = useSafeAreaInsets();
-
   React.useEffect(() => {
     console.log(width);
   }, []);
 
   return (
-    <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
-      {/* <Text> {comic} </Text> */}
+    <View style={[styles.container]}>
       <View style={styles.imgDiv}>
         <Image
           style={{ width: "100%", height: "100%" }}
@@ -41,7 +25,7 @@ export default function Reader({ comic = "My comic here!" }) {
           source={require("../../assets/previewimg.png")}
         />
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 

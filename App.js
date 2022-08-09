@@ -15,7 +15,9 @@ export default function App() {
       <ReaderModal
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
-      />
+      >
+        <Reader />
+      </ReaderModal>
       <Button
         onPress={() => {
           setModalVisible(!modalVisible);

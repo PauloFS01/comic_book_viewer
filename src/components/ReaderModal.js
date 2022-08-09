@@ -1,31 +1,32 @@
 import { View, Text, StyleSheet, Modal, Button } from "react-native";
 import React from "react";
 
-export default function ReaderModal({ modalVisible, setModalVisible }) {
+export default function ReaderModal({
+  modalVisible,
+  setModalVisible,
+  children,
+}) {
   return (
     <View style={styles.container}>
       <Modal
-        style={{ backgroundColor: "black", height: "100%" }}
         animationType="slide"
-        transparent={true}
+        // transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
           setModalVisible(!modalVisible);
         }}
       >
-        <View style={{ backgroundColor: "black", height: "100%" }}>
-          <View>
-            <Text>ReaderModal</Text>
-            <Button
-              onPress={() => {
-                setModalVisible(!modalVisible);
-              }}
-              title="close"
-              color="#841584"
-              accessibilityLabel="Learn more about this purple button"
-            />
-          </View>
+        <View style={styles.content}>
+          {/* <Button
+            style={styles.exitButton}
+            onPress={() => {
+              setModalVisible(!modalVisible);
+            }}
+            title="close"
+            color="#841584"
+            accessibilityLabel="Learn more about this purple button"
+          /> */}
+          {children}
         </View>
       </Modal>
     </View>
@@ -33,5 +34,20 @@ export default function ReaderModal({ modalVisible, setModalVisible }) {
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22,
+  },
+  content: {
+    position: "absolute",
+    height: "100%",
+    backgroundColor: "black",
+  },
+  exitButton: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+  },
 });
